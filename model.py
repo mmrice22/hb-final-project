@@ -1,8 +1,10 @@
-""" Models for National Park App """
+"""Models for National Park App"""
 
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
+
+
 
 class User(db.Model):
     """User of the app"""
@@ -12,9 +14,11 @@ class User(db.Model):
     user_id = db.Column(db.Integer, 
                         primary_key = True,
                         autoincrement = True)
-    fname = db.Column(db.String(50))
-    lname = db.Column(db.String(50))
-    email = db.Column(db.String, unique = True)
+    fname = db.Column(db.String(50), nullable = False)
+    lname = db.Column(db.String(50), nullable = False)
+    email = db.Column(db.String, unique = True, nullable = False)
+
+    # has a relationship with Favorite table
 
     
     # repr is used to give me info back in a readable way
@@ -34,9 +38,76 @@ class NationalPark(db.Model):
     description = db.Column(db.Text)
     state = db.Column(db.String(50))
 
+    # has a relationship with Favorite table
+
+    activities = db.relationship('Activity',
+                                secondary = 'park_activities',
+                                backref = 'parks')
+
 
     def __repr__(self):
-        return f'<NationalPark park_id = {self.park_id} name = {self.name} state = {self.state}'
+        return f'<NationalPark park_id = {self.park_id} name = {self.name} state = {self.state}>'
+
+
+class Favorite(db.Model):
+    """Favorited Parks"""
+
+    __tablename__ = 'favorites'
+
+    favorite_id = db.Column(db.Integer,
+                            autoincrement = True,
+                            primary_key = True)
+    has_been = db.Column(db.Boolean, default = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    park_id = db.Column(db.Integer, db.ForeignKey('parks.park_id'))
+    
+
+    user = db.relationship('User', backref = 'favorites')
+    park = db.relationship('NationalPark', backref = 'favorites')
+
+
+
+    def __repr__(self):
+        return f'<Favorite favorite_id = {self.favorite_id} has_been = {self.has_been}>'
+
+
+
+class ParkActivity(db.Model):
+    """Connecting the National Park table and Activity Table"""
+
+    __tablename__ = 'park_activities'
+
+    park_activity_id = db.Column(db.Integer,
+                        primary_key = True,
+                        autoincrement = True) 
+    park_id = db.Column(db.Integer,
+                        db.ForeignKey('parks.park_id'),
+                        nullable = False)
+    activity_id = db.Column(db.Integer,
+                            db.ForeignKey('activities.activity_id'),
+                            nullable = False)
+
+    # has relationship with NationalPark Table
+
+    def __repr__(self):
+        return f'<ParkActivity park_activity_id = {self.park_activity_id} park_id = {self.park_id}>'
+
+
+
+
+class Activity(db.Model):
+    """Activity"""
+
+    __tablename__ = 'activities'
+
+    activity_id = db.Column(db.Integer,
+                            primary_key = True,
+                            autoincrement = True)
+    activity = db.Column(db.String(50), unique = True)
+
+    def __repr__(self):
+        return f'<Activity activity_id = {self.activity_id} activity = {self.activity}>'
+
 
 
 
