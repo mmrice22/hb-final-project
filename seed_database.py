@@ -77,3 +77,14 @@ natpark5 = NationalPark(name = 'Sleeping Bear Dunes National Lakeshore',
                         state = 'MI')
 db.session.add(natpark5)
 db.session.commit()
+
+
+# Make 2 Favorited National Parks to populate favorites table
+
+fav1 = Favorite(user_id = '1', park_id = '1')
+db.session.add(fav1)
+db.session.commit()
+
+fav2 = Favorite(user_id = '2', park_id = '5')
+db.session.add(fav2)
+db.session.commit()

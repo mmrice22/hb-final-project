@@ -30,7 +30,7 @@ class User(db.Model):
 class NationalPark(db.Model):
     """National Park info"""
 
-    __tablename__ = 'nat_parks'
+    __tablename__ = 'parks'
 
     park_id = db.Column(db.Integer,
                         autoincrement = True,
@@ -60,7 +60,7 @@ class Favorite(db.Model):
                             primary_key = True)
     has_been = db.Column(db.Boolean, default = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    park_id = db.Column(db.Integer, db.ForeignKey('nat_parks.park_id'))
+    park_id = db.Column(db.Integer, db.ForeignKey('parks.park_id'))
     
 
     user = db.relationship('User', backref = 'favorites')
@@ -82,7 +82,7 @@ class ParkActivity(db.Model):
                         primary_key = True,
                         autoincrement = True) 
     park_id = db.Column(db.Integer,
-                        db.ForeignKey('nat_parks.park_id'),
+                        db.ForeignKey('parks.park_id'),
                         nullable = False)
     activity_id = db.Column(db.Integer,
                             db.ForeignKey('activities.activity_id'),
