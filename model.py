@@ -17,6 +17,7 @@ class User(db.Model):
     fname = db.Column(db.String(50), nullable = False)
     lname = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String, unique = True, nullable = False)
+    password = db.Column(db.String)
 
     # has a relationship with Favorite table
 
@@ -29,7 +30,7 @@ class User(db.Model):
 class NationalPark(db.Model):
     """National Park info"""
 
-    __tablename__ = 'parks'
+    __tablename__ = 'nat_parks'
 
     park_id = db.Column(db.Integer,
                         autoincrement = True,
@@ -59,7 +60,7 @@ class Favorite(db.Model):
                             primary_key = True)
     has_been = db.Column(db.Boolean, default = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    park_id = db.Column(db.Integer, db.ForeignKey('parks.park_id'))
+    park_id = db.Column(db.Integer, db.ForeignKey('nat_parks.park_id'))
     
 
     user = db.relationship('User', backref = 'favorites')
@@ -81,7 +82,7 @@ class ParkActivity(db.Model):
                         primary_key = True,
                         autoincrement = True) 
     park_id = db.Column(db.Integer,
-                        db.ForeignKey('parks.park_id'),
+                        db.ForeignKey('nat_parks.park_id'),
                         nullable = False)
     activity_id = db.Column(db.Integer,
                             db.ForeignKey('activities.activity_id'),

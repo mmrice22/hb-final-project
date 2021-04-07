@@ -1,3 +1,7 @@
+RUNNING PROJECT (do this everytime open project)
+activate environment -> source env/bin/activate
+access API key (will raise KeyError if skipped) -> source secrets.sh
+
 to create the db: in terminal run -> createdb parks
 
 now can run python3 -i model.py to connect to the db

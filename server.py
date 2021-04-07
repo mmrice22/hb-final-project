@@ -12,7 +12,7 @@ app.secret_key = 'SECRETKEYSECRETKEYSECRETKEY'
 app.jinja_env.undefined = StrictUndefined
 
 
-API_KEY = os.environ['NPS_KEY']
+api_key = os.environ['NPS_KEY']
 
 
 @app.route('/')
