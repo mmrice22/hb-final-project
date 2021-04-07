@@ -14,6 +14,19 @@ def create_user(fname, lname, email):
     return user
 
 
+def create_park(name, description, state):
+    """Create and return a new park"""
+
+    park = NationalPark(name = fullName,
+                        description = description,
+                        state = states)
+
+    db.session.add(park)
+    db.session.commit()
+
+    return park
+
+
 
 
 
