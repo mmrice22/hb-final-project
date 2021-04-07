@@ -19,8 +19,9 @@ to get into newly created tables/db, in terminal run -> psql parks
 to drop the db: in terminal run -> dropdb parks
 
 create seed file like one from Movie ratings app
+
 testing seed file in -i seed.py ---> >>> fav1 = Favorite.query.first() --> gives back first favorite
-now fav1 should have access to users and parks attributes >>> fav1.user --> gives me the user id, fname and email back >>> fav1.park --> gives me park id, name and state
+now fav1 should have access to users and parks >>> fav1.user --> gives me the user id, fname and email back >>> fav1.park --> gives me park id, name and state
 
                 NPS API:
 

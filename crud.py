@@ -3,10 +3,10 @@
 from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
 
 
-def create_user(fname, lname, email):
+def create_user(fname, lname, email, password):
     """Create and return a new user"""
 
-    user = User(fname = fname, lname = lname, email = email)
+    user = User(fname = fname, lname = lname, email = email, password = password)
 
     db.session.add(user)
     db.session.commit()
@@ -17,9 +17,9 @@ def create_user(fname, lname, email):
 def create_park(name, description, state):
     """Create and return a new park"""
 
-    park = NationalPark(name = fullName,
+    park = NationalPark(name = name,
                         description = description,
-                        state = states)
+                        state = state)
 
     db.session.add(park)
     db.session.commit()
