@@ -18,7 +18,7 @@ create seed file like one from Movie ratings app
 
                 NPS API:
 
-to see info from the API in the terminal run these commands:
+to see info from the API in the terminal run these commands interactively from model.py:
 
 > > > import requests
 > > > url = 'https://developer.nps.gov/api/v1/parks'
