@@ -22,6 +22,13 @@ def homepage():
 
     return render_template('homepage.html')
 
+@app.route('/findparks')
+def show_parks_form():
+    """Show park search form"""
+
+    return render_template('search-form.html')
+
+
 
 
 if __name__ == '__main__':
