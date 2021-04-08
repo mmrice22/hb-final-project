@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title %}NP App{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{% block title %}{% endblock %}</title>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -10,10 +12,19 @@
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
-    <div>
-      <!--put a navbar or something here-->
-    </div>
-
-    {% block content %}{% endblock %}
+    {% block body %}{% endblock %} {% block after_body %}
+    <footer class="site-footer">
+      <div class="footer-container">
+        <h3>About</h3>
+        <p class="about-app-para">
+          WanderList was made for all humans who would love to see the beauty
+          within the United States.
+        </p>
+        <p class="tolkien-quote">
+          "Not all those who wander are lost" - J.R.R. Tolkien
+        </p>
+      </div>
+    </footer>
+    {% endblock %}
   </body>
 </html>
