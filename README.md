@@ -37,13 +37,41 @@ call function and pass in a fake info
         response --> all users including the one just created
         are there
 
-> > > create_favorite(user_id='1',park_id='1')
+    >>> create_favorite(user='Mel',park='Isle Royale National Park')
 
-    response --> <Favorite favorite_id = 3 has_been = False>
+    response --> ERROR 'str' object has no attribute '_sa_instance_state'
 
-Trying to see if I can get info out of Favorite table with these commands --> >>> user1_faves = Favorite.query.filter_by(user_id=1)
+To use the CREATE_FAVORITE function, we need to grab a user object and a park object. So we need to create a variable and save the users info to that variable --->
 
-> > > user1_faves ---> response <flask_sqlalchemy.BaseQuery object at 0x7f2953757048>
+    >>> first_user = User.query.get(1)
+    *We have grabbed the first user by their id (thats what .get does)*
+    >>> first_user--> <User user_id = 1 fname = Mel email = ricemel1@msu.edu>
+
+    do the same exact thing for a park
+    >>> first_park = NationalPark.query.get(1)
+    >>> first_park --> <NationalPark park_id = 1 name = Isle Royale National Park state = MI>
+
+    **Now we have a user instance/object and a park instance/object to use as an argument for our create_favorite function**
+
+    >>> third_fave = create_favorite(first_user,first_park)
+    ---> <Favorite favorite_id = 3 has_been = False>
+
+    ** now I can use dot notation to access info about the specific user and the park that this fave references**
+
+    >>> third_fave.user
+    --> <User user_id = 1 fname = Mel email = ricemel1@msu.edu>
+
+    >>> third_fave.user.fname
+    --> 'Mel'
+
+    >>> third_fave.user.email
+    --> 'ricemel1@msu.edu'
+
+    >>> third_fave.park.name
+    --> 'Isle Royale National Park'
+
+    >>> third_fave.park.description
+    --> "Explore a rugged, isolated island,......"
 
                 NPS API:
 
