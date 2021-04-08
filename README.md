@@ -73,7 +73,8 @@ To use the CREATE_FAVORITE function, we need to grab a user object and a park ob
     >>> third_fave.park.description
     --> "Explore a rugged, isolated island,......"
 
-                NPS API:
+
+                NPS API stuff
 
 to see info from the API in the terminal run these commands interactively from model.py:
 
