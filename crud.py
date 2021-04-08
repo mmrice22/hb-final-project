@@ -27,10 +27,10 @@ def create_park(name, description, state):
     return park
 
 
-def create_favorite(user, park):
+def create_favorite(user_id, park_id):
     """Create and return a new favorite"""
 
-    favorite = Favorite(user = user, park = park)
+    favorite = Favorite(user_id = user_id, park_id = park_id)
 
     db.session.add(favorite)
     db.session.commit()

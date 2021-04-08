@@ -20,8 +20,30 @@ to drop the db: in terminal run -> dropdb parks
 
 create seed file like one from Movie ratings app
 
-testing seed file in -i seed.py ---> >>> fav1 = Favorite.query.first() --> gives back first favorite
+TESTING SEED FILE in -i seed.py ---> >>> fav1 = Favorite.query.first() --> gives back first favorite
 now fav1 should have access to users and parks >>> fav1.user --> gives me the user id, fname and email back >>> fav1.park --> gives me park id, name and state
+
+TESTING CRUD FILE
+test that create_user works by running python3 -i crud.py
+call function and pass in a fake info
+
+> > > create_user(fname='eli',lname='lowry',email='elinash@um.edu',password='testpw1')
+
+    response --> <User user_id = 6 fname = eli email = elinash@um.edu>
+
+    * query for it and check that it is actually there
+    >>> all_users = User.query.all()
+    >>> all_users
+        response --> all users including the one just created
+        are there
+
+> > > create_favorite(user_id='1',park_id='1')
+
+    response --> <Favorite favorite_id = 3 has_been = False>
+
+Trying to see if I can get info out of Favorite table with these commands --> >>> user1_faves = Favorite.query.filter_by(user_id=1)
+
+> > > user1_faves ---> response <flask_sqlalchemy.BaseQuery object at 0x7f2953757048>
 
                 NPS API:
 
