@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from model import connect_to_db
+from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
 from pprint import pformat
 
 import os
