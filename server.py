@@ -52,7 +52,7 @@ def find_parks():
     return render_template('search-results.html',
                             pformat = pformat,
                             data = data,
-                            results = parks)
+                            parks = parks)
 
 
 
