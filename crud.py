@@ -1,6 +1,15 @@
 """CRUD operations"""
 
 from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
+import server
+from flask import request
+
+import os
+import requests
+
+api_key = os.environ['NPS_KEY']
+
+
 
 
 def create_user(fname, lname, email, password):
@@ -25,6 +34,21 @@ def create_park(name, description, state):
     db.session.commit()
 
     return park
+
+
+def get_parks():
+    """Return all Parks"""
+
+    url = 'https://developer.nps.gov/api/v1/parks'
+
+    stateCode = request.form.get('state')
+    payload = {'api_key': api_key, 'stateCode': stateCode}
+    res = requests.get(url, params=payload)
+
+    data = res.json()
+    parks = data['data']
+
+    return parks
 
 
 def create_favorite(user, park):

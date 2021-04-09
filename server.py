@@ -28,9 +28,12 @@ def show_parks_form():
 
     return render_template('search-form.html')
 
+
 @app.route('/parks/search')
 def find_parks():
     """Search for National Parks from NPS API"""
+
+    parks = crud.get_parks()
 
     stateCode = request.args.get('stateCode', '')
     fullName = request.args.get('fullName', '')
@@ -47,12 +50,13 @@ def find_parks():
     response = requests.get(url, params = payload)
 
     data = response.json()
-    parks = data['data']
+    park_data = data['data']
 
     return render_template('search-results.html',
                             pformat = pformat,
                             data = data,
-                            parks = parks)
+                            parks = parks,
+                            park_data = park_data)
 
 
 
