@@ -28,6 +28,31 @@ def show_parks_form():
 
     return render_template('search-form.html')
 
+@app.route('/parks/search')
+def find_parks():
+    """Search for National Parks from NPS API"""
+
+    stateCode = request.args.get('stateCode', '')
+    fullName = request.args.get('fullName', '')
+    description = request.args.get('description', '')
+    states = request.args.get('states', '')
+
+    url = 'https://developer.nps.gov/api/v1/parks'
+    payload = {'api_key': api_key, 
+                'stateCode': stateCode,
+                'fullName': fullName,
+                'description': description,
+                'states': states}
+
+    response = requests.get(url, params = payload)
+
+    data = response.json()
+    parks = data['data']
+
+    return render_template('search-results.html',
+                            pformat = pformat,
+                            data = data,
+                            results = parks)
 
 
 
