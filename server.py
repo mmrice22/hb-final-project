@@ -22,11 +22,24 @@ def homepage():
 
     return render_template('homepage.html')
 
-@app.route('/login')
-def signin():
-    """Show user sign in form"""
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    """Log user in if email already exists"""
+    
+    if request.method == 'POST':
+    #fname = request.form['fname']
+        email = request.form['email']
+        password = request.form['password']
 
-    return render_template('login.html')
+        if password == 'password':
+            session['email'] = request.form['email']
+            flash(f'Logged in as {email}')
+            return redirect("/")
+
+        else:
+            flash("Wrong password!")
+            return redirect("/login") 
+
 
 
 @app.route('/findparks')
