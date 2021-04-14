@@ -22,6 +22,13 @@ def homepage():
 
     return render_template('homepage.html')
 
+@app.route('/login')
+def signin():
+    """Show user sign in form"""
+
+    return render_template('signin.html')
+
+
 @app.route('/findparks')
 def show_parks_form():
     """Show park search form"""
