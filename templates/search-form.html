@@ -2,7 +2,9 @@
 {%block body %}
 <main class="form-container">
   <div class="content-wrap">
-    <h2>Pick a state and let's see what they have to offer!</h2>
+    <h2>
+      Welcome {{ user }}! Pick a state and let's see what they have to offer!
+    </h2>
     <form method="GET" action="/parks/search">
       <label for="states">Search by State Code </label>
       <input type="text" name="state" maxlength="2" required />

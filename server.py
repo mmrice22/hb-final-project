@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, g
 from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
 from pprint import pformat
 import crud
@@ -22,23 +22,21 @@ def homepage():
 
     return render_template('homepage.html')
 
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
-    """Log user in if email already exists"""
     
+
+@app.route('/login', methods = ["GET", "POST"])
+def login():
+    """Show Login Form"""
+
     if request.method == 'POST':
-    #fname = request.form['fname']
-        email = request.form['email']
-        password = request.form['password']
+        session.pop('user', None)
 
-        if password == 'password':
-            session['email'] = request.form['email']
-            flash(f'Logged in as {email}')
-            return redirect("/")
+        if request.form['password'] == 'password':
+            session['user'] = request.form['fname']
+            return redirect("/findparks")
 
-        else:
-            flash("Wrong password!")
-            return redirect("/login") 
+    return render_template('homepage.html')
+
 
 
 
@@ -46,7 +44,19 @@ def login():
 def show_parks_form():
     """Show park search form"""
 
-    return render_template('search-form.html')
+    if g.user:
+        return render_template('search-form.html', user = session['user'])
+    
+    return redirect('/login')
+
+
+@app.before_request
+def before_request():
+    g.user = None
+
+    if 'user' in session:
+        g.user = session['user']
+        
 
 
 @app.route('/parks/search')
