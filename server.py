@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect, g
+from flask import Flask, render_template, request, flash, session, redirect
 from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
 from pprint import pformat
 import crud
@@ -22,20 +22,18 @@ def homepage():
 
     return render_template('homepage.html')
 
-    
+
 
 @app.route('/login', methods = ["GET", "POST"])
 def login():
     """Show Login Form"""
 
     if request.method == 'POST':
-        session.pop('user', None)
-
-        if request.form['password'] == 'password':
-            session['user'] = request.form['fname']
-            return redirect("/findparks")
-
-    return render_template('homepage.html')
+        user = request.form["fname"]
+        session["user"] = user
+        return redirect("/findparks")
+    else:
+        return render_template("login.html")
 
 
 
@@ -44,18 +42,13 @@ def login():
 def show_parks_form():
     """Show park search form"""
 
-    if g.user:
-        return render_template('search-form.html', user = session['user'])
+    if "user" in session:
+        user = session["user"]
+        return render_template('search-form.html')
     
-    return redirect('/login')
+    else:
+        return redirect('/login')
 
-
-@app.before_request
-def before_request():
-    g.user = None
-
-    if 'user' in session:
-        g.user = session['user']
         
 
 
@@ -87,6 +80,8 @@ def find_parks():
                             data = data,
                             parks = parks,
                             park_data = park_data)
+
+
 
 
 
