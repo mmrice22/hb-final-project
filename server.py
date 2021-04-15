@@ -33,6 +33,8 @@ def login():
         session["user"] = user
         return redirect("/findparks")
     else:
+        if "user" in session:
+            return redirect("/findparks")
         return render_template("login.html")
 
 
@@ -82,7 +84,10 @@ def find_parks():
                             park_data = park_data)
 
 
-
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect('/')
 
 
 if __name__ == '__main__':
