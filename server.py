@@ -24,13 +24,19 @@ def homepage():
 
 
 
-@app.route('/login', methods = ["GET", "POST"])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
     """Show Login Form"""
 
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    email = request.form.get('email')
+    password = request.form.get('password')
+
     if request.method == 'POST':
-        user = request.form["fname"]
+        user = request.form['fname']
         session["user"] = user
+        input_info_to_db = crud.create_user(fname,lname,email,password)
         return redirect("/findparks")
     else:
         if "user" in session:

@@ -23,6 +23,12 @@ def create_user(fname, lname, email, password):
     return user
 
 
+def get_user_by_email(email):
+    """Return a user by their email"""
+
+    return User.query.filter(User.email == email).first()
+
+
 def create_park(name, description, state):
     """Create and return a new park"""
 
