@@ -28,20 +28,37 @@ def homepage():
 def login():
     """Show Login Form"""
 
-    fname = request.form.get('fname')
-    lname = request.form.get('lname')
-    email = request.form.get('email')
-    password = request.form.get('password')
-
     if request.method == 'POST':
         user = request.form['fname']
         session["user"] = user
-        input_info_to_db = crud.create_user(fname,lname,email,password)
         return redirect("/findparks")
     else:
         if "user" in session:
             return redirect("/findparks")
         return render_template("login.html")
+
+
+@app.route('/signup', methods = ['POST'])
+def register_user():
+    """Create a new user and add to database"""
+
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    user_email = crud.get_user_by_email(email)
+    if user_email:
+        print('Email is associated with an account. Please Login.')
+        #return redirect('/login')
+    else:
+        #crud.create_user(fname,lname,email,password)
+        print('Account created! Please Login.')
+        #return redirect('/login')
+    
+    return redirect('/login')
+
+
 
 
 
