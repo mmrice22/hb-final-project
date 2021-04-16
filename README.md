@@ -92,7 +92,6 @@ to see info from the API in the terminal run these commands interactively from m
 
         response -> all the parks in Michigan
 
-
 > > > park = data['data'][0] (data is a key whose value is a list of dictionaries)
 > > > park
 
@@ -113,3 +112,8 @@ to see info from the API in the terminal run these commands interactively from m
 > > > park['images'][0] ('images' is a key)
 
     response -> a dictionary of the first image [0] info: gives back a credit, title,url among other things
+
+    IN search-results.html file to get parks
+
+      <p>{{parks[-1]['fullName']}}</p> --> Sleeping Bear Dunes
+      <p>{{parks[-1]['description']}}</p> -> parks description

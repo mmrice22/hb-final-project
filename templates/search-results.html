@@ -3,13 +3,15 @@ body %}
 
 <div class="results-container">
   <div class="content-wrapper">
-    <h2>Results as JSON</h2>
-    <!--<pre>{{pformat(parks)}}</pre>-->
-  </div>
-  <div id="search-results">
-    <h2>National Park Search Results</h2>
-    {{parks}}
+    <div id="search-results">
+      <h2>National Park Search Results</h2>
+      {% for park in parks %}
+      <div class="parks-container">
+        <p class="park-name">{{park.fullName}}</p>
+        <p class="park-description">{{park.description}}</p>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
-
 {% endblock %}

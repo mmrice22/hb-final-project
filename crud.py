@@ -52,7 +52,7 @@ def get_parks():
     res = requests.get(url, params=payload)
 
     data = res.json()
-    parks = data
+    parks = data['data']
 
     return parks
 

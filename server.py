@@ -83,7 +83,6 @@ def find_parks():
 
     parks = crud.get_parks()
 
-
     return render_template('search-results.html',
                             pformat = pformat,
                             parks = parks,)
