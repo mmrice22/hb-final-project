@@ -88,6 +88,11 @@ to see info from the API in the terminal run these commands interactively from m
 
 > > > res = requests.get(url, params=payload)
 > > > data = res.json()
+> > > data
+
+        response -> all the parks in Michigan
+
+
 > > > park = data['data'][0] (data is a key whose value is a list of dictionaries)
 > > > park
 

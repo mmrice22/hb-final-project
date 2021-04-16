@@ -47,12 +47,12 @@ def get_parks():
 
     url = 'https://developer.nps.gov/api/v1/parks'
 
-    stateCode = request.form.get('state')
+    stateCode = request.args.get('state', '')
     payload = {'api_key': api_key, 'stateCode': stateCode}
     res = requests.get(url, params=payload)
 
     data = res.json()
-    parks = data['data']
+    parks = data
 
     return parks
 
