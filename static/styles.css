@@ -18,3 +18,9 @@ body {
   bottom: 0;
   left: 0;
 }
+
+.parks-container {
+  background-color: aliceblue;
+  border: 5px solid gray;
+  border-radius: 20px;
+}
