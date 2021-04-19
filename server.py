@@ -31,6 +31,11 @@ def login():
     if request.method == 'POST':
         user = request.form['fname']
         session["user"] = user
+        # had this create user here when added User Drew
+        # but you could use that same info and make another user
+        # multiple times. BUT if the user never logs out...
+        # the way the routes are currently set, they can't log in again
+        #crud.create_user(fname,lname,email,password)
         return redirect("/findparks")
     else:
         if "user" in session:
@@ -49,7 +54,7 @@ def register_user():
 
     user_email = crud.get_user_by_email(email)
     if user_email:
-        print('Email is associated with an account. Please Login.')
+        flash("Email is associated with an account. Please Login.")
         #return redirect('/login')
     else:
         #crud.create_user(fname,lname,email,password)
@@ -88,9 +93,22 @@ def find_parks():
                             parks = parks,)
 
 
-@app.route("/logout")
+
+
+@app.route('/favorites')
+def show_favorites():
+    """Show favorited parks"""
+
+    # once the .favorite-button is clicked, add to Favorite table
+
+    return render_template('favorites.html')
+
+
+
+
+@app.route('/logout')
 def logout():
-    session.pop("user", None)
+    session.pop('user', None)
     return redirect('/')
 
 

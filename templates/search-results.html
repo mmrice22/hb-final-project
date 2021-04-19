@@ -4,12 +4,12 @@ body %}
 <div class="results-container">
   <div class="content-wrapper">
     <div id="search-results">
-      <h2>National Park Search Results</h2>
+      <h2>National Parks Search Results</h2>
       {% for park in parks %}
       <div class="parks-container">
-        <p class="park-name">{{park.fullName}}</p>
+        <h3 class="park-name">{{park.fullName}}</h3>
         <p class="park-description">{{park.description}}</p>
-        <button><i class="fas fa-heart"></i></button>
+        <button class="favorite-button"><i class="fas fa-heart"></i></button>
       </div>
       {% endfor %}
     </div>
