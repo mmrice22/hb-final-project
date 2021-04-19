@@ -14,9 +14,18 @@
     })
 
 
-function addFavorite() {
+let addFavorite = (park) => {
     //call crud function create_favorite here somehow
+    $('.favorited-park').append(`${park}`);
+    console.log(park);
+
     
+    $(`.favorited-park`).html(park);
 };
 
 $('.favorite-button').on('click', addFavorite);
+
+
+const disableFaveButton = (faveButton) => {
+    $(faveButton).attr('disabled', true);
+};
