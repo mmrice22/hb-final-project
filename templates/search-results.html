@@ -1,30 +1,29 @@
 {% extends 'base.html' %} {% block title %}National Parks{% endblock %} {% block
 body %}
 
-<div class="results-container">
-  <div class="content-wrapper">
-    <div id="search-results">
-      <h2>National Parks Search Results</h2>
+    
+      <h2 id="results-header">National Parks Search Results</h2>
+      <div id="search-results">
       {% for park in parks %}
       <div class="parks-container">
-        <h3 class="park-name">{{park.fullName}}</h3>
-        <p class="park-description">{{park.description}}</p>
-        <p class="park-image">
+        <div class="parks-content">
+          <h3 class="park-name">{{park.fullName}}</h3>
+          <p class="park-description">{{park.description}}</p>
+          <p class="park-image">
           <!-- <img src="{{park.images[0]['url']}}" /> -->
-        </p>
+          </p>
 
-        <h4>Directions</h4>
-        <p class="park-directions">{{park.directionsInfo}}</p>
-        <h4>State Code</h4>
-        <p class="state-code">{{park.addresses[0]['stateCode']}}</p>
-        <div class="button-container">
-          <button class="favorite-button"><i class="fas fa-heart"></i></button>
+          <h4>Directions</h4>
+          <p class="park-directions">{{park.directionsInfo}}</p>
+          <h4>State Code</h4>
+          <p class="state-code">{{park.addresses[0]['stateCode']}}</p>
+          <div class="button-container">
+            <button class="favorite-button"><i class="fas fa-heart"></i></button>
+          </div> 
         </div>
         </div>
 
         {% endfor %}
       </div>
     </div>
-  </div>
   {% endblock %}
-</div>
