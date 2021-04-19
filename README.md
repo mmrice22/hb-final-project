@@ -117,3 +117,6 @@ to see info from the API in the terminal run these commands interactively from m
 
       <p>{{parks[-1]['fullName']}}</p> --> Sleeping Bear Dunes
       <p>{{parks[-1]['description']}}</p> -> parks description
+
+> > > park['images'][0]['url']
+> > > response ---> 'https://www.nps.gov/common/uploads/structured_data/6059CAD8-02E8-2E00-2922DF84800167E0.jpg'
