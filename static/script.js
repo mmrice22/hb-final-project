@@ -8,4 +8,15 @@
             //db.session.add(favorite)
             //db.session.commit()
         //return favorite
+
+        // after park is added to the favorites table, I want 
+        // it to disappear off of the search-results page once added
     })
+
+
+function addFavorite() {
+    //call crud function create_favorite here somehow
+    
+};
+
+$('.favorite-button').on('click', addFavorite);
