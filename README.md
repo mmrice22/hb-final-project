@@ -120,3 +120,6 @@ to see info from the API in the terminal run these commands interactively from m
 
 > > > park['images'][0]['url']
 > > > response ---> 'https://www.nps.gov/common/uploads/structured_data/6059CAD8-02E8-2E00-2922DF84800167E0.jpg'
+
+> > > park['directionsInfo']
+> > > response ---> 'Isle Royale National Park headquarters is located in Houghton, MI. Visit the Houghton page on the Isle Royale National Park website for additional information and a map on how to access the visitor center.'

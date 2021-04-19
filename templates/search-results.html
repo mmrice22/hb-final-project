@@ -11,12 +11,20 @@ body %}
         <p class="park-description">{{park.description}}</p>
         <p class="park-image">
           <!-- <img src="{{park.images[0]['url']}}" /> -->
-          <button class="favorite-button"><i class="fas fa-heart"></i></button>
         </p>
-      </div>
 
-      {% endfor %}
+        <h4>Directions</h4>
+        <p class="park-directions">{{park.directionsInfo}}</p>
+        <h4>State Code</h4>
+        <p class="state-code">{{park.addresses[0]['stateCode']}}</p>
+        <div class="button-container">
+          <button class="favorite-button"><i class="fas fa-heart"></i></button>
+        </div>
+        </div>
+
+        {% endfor %}
+      </div>
     </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}
