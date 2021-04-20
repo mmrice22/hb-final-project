@@ -31,11 +31,6 @@ def login():
     if request.method == 'POST':
         user = request.form['fname']
         session["user"] = user
-        # had this create user here when added User Drew
-        # but you could use that same info and make another user
-        # multiple times. BUT if the user never logs out...
-        # the way the routes are currently set, they can't log in again
-        #crud.create_user(fname,lname,email,password)
         return redirect("/findparks")
     else:
         if "user" in session:
@@ -43,7 +38,7 @@ def login():
         return render_template("login.html")
 
 
-@app.route('/signup', methods = ['POST'])
+@app.route('/', methods = ['POST'])
 def register_user():
     """Create a new user and add to database"""
 
@@ -55,13 +50,11 @@ def register_user():
     user_email = crud.get_user_by_email(email)
     if user_email:
         flash("Email is associated with an account. Please Login.")
-        #return redirect('/login')
     else:
         #crud.create_user(fname,lname,email,password)
-        print('Account created! Please Login.')
-        #return redirect('/login')
+        flash('Account created! Please Login.')
     
-    return redirect('/login')
+    return redirect('/')
 
 
 
