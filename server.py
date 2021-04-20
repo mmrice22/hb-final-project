@@ -95,10 +95,16 @@ def find_parks():
 def show_favorites():
     """Show favorited parks"""
 
-    # once the .favorite-button is clicked, add to Favorite table
-    #favorite = crud.create_favorite()
+    # first need to get a user
+    if "user" in session:
+        user = session["user"]
+    
+    #grab the specific liked park when the button in clicked
+    
 
-    return render_template('favorites.html')
+    favorite = crud.create_favorite(user,park)
+
+    return render_template('favorites.html', user = user, park = park)
 
 
 
