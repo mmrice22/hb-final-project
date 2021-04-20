@@ -35,17 +35,17 @@ def validate_user(email,password):
     return User.query.filter(User.email == email, User.password == password).first()
 
 
-def create_park(name, description, state):
-    """Create and return a new park"""
+#def create_park(name, description, state):
+    #"""Create and return a new park"""
 
-    park = NationalPark(name = name,
-                        description = description,
-                        state = state)
+    #park = NationalPark(name = name,
+                       # description = description,
+                       # state = state)
 
-    db.session.add(park)
-    db.session.commit()
+    #db.session.add(park)
+    #db.session.commit()
 
-    return park
+    #return park
 
 
 def get_parks():

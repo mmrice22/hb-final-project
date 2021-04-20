@@ -96,7 +96,7 @@ def show_favorites():
     """Show favorited parks"""
 
     # once the .favorite-button is clicked, add to Favorite table
-    favorite = crud.create_favorite()
+    #favorite = crud.create_favorite()
 
     return render_template('favorites.html')
 
