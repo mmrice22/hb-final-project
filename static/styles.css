@@ -31,18 +31,50 @@ body {
 }
 
 #search-results {
-  margin: 10px;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  justify-content: space-around;
 }
 
-.parks-container {
+div.parks-container {
   display: flex;
   justify-content: center;
-  background-color: aliceblue;
-  border: 5px solid gray;
+  background-color: rgba(198, 249, 248, 0.94);
+  border: 5px solid white;
   border-radius: 20px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 275px;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.parks-content {
+  margin: 10px;
+}
+
+.park-name {
+  margin: 0;
+  text-align: center;
+}
+
+.directions-header {
+  text-align: center;
+}
+
+.state-header {
+  margin: 0;
+}
+
+.state-code {
+  margin: 0;
+}
+
+.favorite-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
