@@ -51,7 +51,7 @@ def register_user():
     if user_email:
         flash("Email is associated with an account. Please Login.")
     else:
-        #crud.create_user(fname,lname,email,password)
+        crud.create_user(fname,lname,email,password)
         flash('Account created! Please Login.')
     
     return redirect('/')
