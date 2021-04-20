@@ -29,6 +29,12 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
+def validate_user(email,password):
+    """Check to see if email and password match to login"""
+
+    return User.query.filter(User.email == email, User.password == password).first()
+
+
 def create_park(name, description, state):
     """Create and return a new park"""
 

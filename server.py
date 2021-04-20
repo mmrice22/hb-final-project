@@ -23,21 +23,6 @@ def homepage():
     return render_template('homepage.html')
 
 
-
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
-    """Show Login Form"""
-
-    if request.method == 'POST':
-        user = request.form['fname']
-        session["user"] = user
-        return redirect("/findparks")
-    else:
-        if "user" in session:
-            return redirect("/findparks")
-        return render_template("login.html")
-
-
 @app.route('/', methods = ['POST'])
 def register_user():
     """Create a new user and add to database"""
@@ -58,12 +43,30 @@ def register_user():
 
 
 
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    """Show Login Form"""
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    if request.method == 'POST':
+        user = request.form['fname']
+        session["user"] = user
+        return redirect("/findparks")
+    else:
+        if "user" in session:
+            return redirect("/findparks")
+        return render_template("login.html")
 
 
 
-@app.route('/findparks')
+
+
+@app.route('/findparks', methods = ['GET','POST'])
 def show_parks_form():
     """Show park search form"""
+
 
     if "user" in session:
         user = session["user"]
