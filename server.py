@@ -50,12 +50,14 @@ def login():
     email = request.form.get('email')
     password = request.form.get('password')
 
+    user = crud.get_user_by_email(email)
+
     if request.method == 'POST':
-        user = request.form['fname']
-        session["user"] = user
-        return redirect("/findparks")
+        if user.password == password:
+            session["user_id"] = user.user_id
+            return redirect("/findparks")
     else:
-        if "user" in session:
+        if "user_id" in session:
             return redirect("/findparks")
         return render_template("login.html")
 
@@ -68,9 +70,9 @@ def show_parks_form():
     """Show park search form"""
 
 
-    if "user" in session:
-        user = session["user"]
-        return render_template('search-form.html')
+    if "user_id" in session:
+        user = User.query.get(session['user_id'])
+        return render_template('search-form.html', user = user)
     
     else:
         return redirect('/login')

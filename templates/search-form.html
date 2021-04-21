@@ -3,8 +3,8 @@
 <main class="form-container">
   <div class="content-wrap">
     <h2>
-      Welcome back {{ session["user"] }}! Pick a state and let's see what they
-      have to offer!
+      Welcome back {{ user.fname }}! Pick a state and let's see what they have
+      to offer!
     </h2>
     <form method="GET" action="/parks/search">
       <label for="states">Search by State Code </label>

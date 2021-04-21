@@ -35,7 +35,7 @@ def validate_user(email,password):
     return User.query.filter(User.email == email, User.password == password).first()
 
 
-#def create_park(name, description, state):
+#def add_park(name, description, state):
     #"""Create and return a new park"""
 
     #park = NationalPark(name = name,
