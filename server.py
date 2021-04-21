@@ -33,9 +33,12 @@ def register_user():
     password = request.form.get('password')
 
     user_email = crud.get_user_by_email(email)
+    
+    # check to see if email submitted is already in the db
     if user_email:
         flash("Email is associated with an account. Please Login.")
     else:
+        #if email is not in db, create the user with submitted info
         crud.create_user(fname,lname,email,password)
         flash('Account created! Please Login.')
     
@@ -53,15 +56,20 @@ def login():
     user = crud.get_user_by_email(email)
 
     if request.method == 'POST':
+        # if the password in db matched submitted password
         if user.password == password:
+            # then save in the session the users id
             session["user_id"] = user.user_id
             return redirect("/findparks")
         else:
             flash("Wrong password, please try again")
             return redirect('/login')
     else:
+        # if there is a user already in the session, redirect to findparks route
         if "user_id" in session:
             return redirect("/findparks")
+        
+        # if there isn't a user in session, show login 
         return render_template("login.html")
 
 
@@ -74,10 +82,14 @@ def show_parks_form():
 
 
     if "user_id" in session:
+        # get the user object by their id and store the user object in the variable user
         user = User.query.get(session['user_id'])
+        # now I can say user.fname, user.lname, user.email in the jinja template
         return render_template('search-form.html', user = user)
     
     else:
+        # if user is not in session, direct them to login
+        # a user can't go to parks form if they are not logged in
         return redirect('/login')
 
         
@@ -100,7 +112,7 @@ def find_parks():
 def show_favorites():
     """Show favorited parks"""
 
-    # first need to get a user
+    # first need to get a user by their id
     if "user_id" in session:
         user_id = session["user_id"]
     
