@@ -1,8 +1,8 @@
 // CREATE A FAVORITE BY CLICKING HEART BUTTON
 // this works when it is copied and pasted in the console dev tools
- $('.favorite-button').on('click', () => {
+ //$('.favorite-button').on('click', () => {
         //alert('button clicked!');
-        console.log('button clicked')
+   //     console.log('button clicked')
         // add the favorite to the database
         // call create_favorite function from crud.py --->
         // favorite = Favorite(user= user, park = park)
@@ -12,7 +12,7 @@
 
         // after park is added to the favorites table, I want 
         // it to disappear off of the search-results page once added
-    })
+  //  })
 
 
 //let addFavorite = (park) => {
@@ -35,6 +35,7 @@ const disableFaveButton = (buttonEl) => {
 
 $('.favorite-button').on('click', (evt) => {
     evt.preventDefault();
+    console.log("button clicked!")
     const clickedBtn = evt.target;
     disableFaveButton(clickedBtn)
 });
