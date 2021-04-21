@@ -56,6 +56,9 @@ def login():
         if user.password == password:
             session["user_id"] = user.user_id
             return redirect("/findparks")
+        else:
+            flash("Wrong password, please try again")
+            return redirect('/login')
     else:
         if "user_id" in session:
             return redirect("/findparks")
@@ -113,7 +116,7 @@ def show_favorites():
 
 @app.route('/logout')
 def logout():
-    session.pop('user', None)
+    session.pop('user_id', None)
     return redirect('/')
 
 
