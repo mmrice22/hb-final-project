@@ -29,23 +29,23 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
-def validate_user(email,password):
-    """Check to see if email and password match to login"""
-
-    return User.query.filter(User.email == email, User.password == password).first()
 
 
-#def add_park(name, description, state):
-    #"""Create and return a new park"""
+def add_park(name, state):
+    """Create and return a new park"""
 
-    #park = NationalPark(name = name,
-                       # description = description,
-                       # state = state)
+    park = NationalPark.query.filter(NationalPark.name == name).first()
+    
+    if park is None:
+        park = NationalPark(name = name,
+                        state = state)
 
-    #db.session.add(park)
-    #db.session.commit()
+        db.session.add(park)
+        db.session.commit()
 
-    #return park
+    
+
+    return park
 
 
 def get_parks():
@@ -63,10 +63,10 @@ def get_parks():
     return parks
 
 
-def create_favorite(user, park):
+def create_favorite_by_id(user_id, park_id):
     """Create and return a new favorite"""
 
-    favorite = Favorite(user= user, park = park)
+    favorite = Favorite(user_id= user_id, park_id = park_id)
 
     db.session.add(favorite)
     db.session.commit()

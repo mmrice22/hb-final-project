@@ -1,7 +1,8 @@
 // CREATE A FAVORITE BY CLICKING HEART BUTTON
 // this works when it is copied and pasted in the console dev tools
  $('.favorite-button').on('click', () => {
-        alert('button clicked!');
+        //alert('button clicked!');
+        console.log('button clicked')
         // add the favorite to the database
         // call create_favorite function from crud.py --->
         // favorite = Favorite(user= user, park = park)
@@ -14,18 +15,26 @@
     })
 
 
-let addFavorite = (park) => {
+//let addFavorite = (park) => {
     //call crud function create_favorite here somehow
-    $('.favorited-park').append(`${park}`);
-    console.log(park);
+  //  $('.favorited-park').append(`${park}`);
+    //alert('button clicked!');
+    //console.log(park);
 
     
-    $(`.favorited-park`).html(park);
+    //$(`.favorited-park`).html(park);
+//};
+
+//$('.favorite-button').on('click', addFavorite);
+
+
+const disableFaveButton = (buttonEl) => {
+    $(buttonEl).attr('disabled', true);
 };
 
-$('.favorite-button').on('click', addFavorite);
 
-
-const disableFaveButton = (faveButton) => {
-    $(faveButton).attr('disabled', true);
-};
+$('.favorite-button').on('click', (evt) => {
+    evt.preventDefault();
+    const clickedBtn = evt.target;
+    disableFaveButton(clickedBtn)
+});
