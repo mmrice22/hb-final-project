@@ -11,6 +11,8 @@ api_key = os.environ['NPS_KEY']
 
 
 
+#------------------User functions----------------#
+
 
 def create_user(fname, lname, email, password):
     """Create and return a new user"""
@@ -31,21 +33,7 @@ def get_user_by_email(email):
 
 
 
-def add_park(name, state):
-    """Create and return a new park"""
-
-    park = NationalPark.query.filter(NationalPark.name == name).first()
-    
-    if park is None:
-        park = NationalPark(name = name,
-                        state = state)
-
-        db.session.add(park)
-        db.session.commit()
-
-    
-
-    return park
+#------------------National Park functions----------------#
 
 
 def get_parks():
@@ -63,15 +51,42 @@ def get_parks():
     return parks
 
 
+
+def add_park(name, state):
+    """Add park to the National Park table"""
+
+    park = NationalPark.query.filter(NationalPark.name == name).first()
+    
+    if park is None:
+        park = NationalPark(name = name,
+                        state = state)
+
+        db.session.add(park)
+        db.session.commit()
+
+    return park
+
+
+
+
+
+#------------------Favorite functions----------------#
+
+
 def create_favorite_by_id(user_id, park_id):
-    """Create and return a new favorite"""
+    """Create and add new favorite to Favorite table"""
 
-    favorite = Favorite(user_id= user_id, park_id = park_id)
+    favorite = NationalPark.query.filter(NationalPark.name == name).first()
 
-    db.session.add(favorite)
-    db.session.commit()
+    if favorite is None:
+        favorite = Favorite(user_id= user_id, 
+                            park_id = park_id)
+        db.session.add(favorite)
+        db.session.commit()
 
     return favorite
+
+
 
 
 
