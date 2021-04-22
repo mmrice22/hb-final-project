@@ -8,9 +8,11 @@ const disableFaveButton = () => {
 
 
 $('.favorite-button').on('click', (evt) => {
-    evt.preventDefault();
     $('.favorite-button').addClass("clicked")
     console.log("button clicked!")
     const clickedBtn = evt.target;
-    disableFaveButton(clickedBtn)
+    if (clickedBtn === evt.target){
+        disableFaveButton(clickedBtn)
+    };
+    
 });
