@@ -51,6 +51,12 @@ def get_parks():
     return parks
 
 
+def get_park_by_id(park_id):
+    """Get a park by their id from the National Park table"""
+
+    return NationalPark.query.get(park_id)
+
+
 
 def add_park(name, state):
     """Add park to the National Park table"""

@@ -118,6 +118,7 @@ def show_favorites():
     
     #grab the specific liked park when the button in clicked
     
+    
 
     favorite = crud.create_favorite_by_id(user_id,park_id)
 
