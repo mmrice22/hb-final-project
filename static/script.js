@@ -3,10 +3,7 @@
 const disableFaveButton = () => {
     if ($("button").hasClass("clicked")){
         $("button.clicked").attr('disabled', true)
-    } else {
-        $("button").attr('disabled', false)
-    };
-    
+    };  
 };
 
 
