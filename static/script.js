@@ -1,18 +1,20 @@
 // CREATE A FAVORITE BY CLICKING HEART BUTTON
 
 const disableFaveButton = () => {
-    if ($(".favorite-button").hasClass("clicked")){
+    if ($(evt.target).hasClass("clicked")){
         $(".favorite-button").attr('disabled', true)
     };
 };
 
 
 $('.favorite-button').on('click', (evt) => {
-    $('.favorite-button').addClass("clicked")
+    $(evt.target).addClass("clicked")
     console.log("button clicked!")
     const clickedBtn = evt.target;
     if (clickedBtn === evt.target){
         disableFaveButton(clickedBtn)
     };
-    
 });
+
+
+
