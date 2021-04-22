@@ -20,15 +20,16 @@ $('.favorite-button').on('click', (evt) => {
         // get info stored in element with the class state-code
         parkStateCode: $('.state-code').data()
     };
+    // send divData to the server
+    $.get('/favorites', divData, (res) => {
+    //display response from the server
+        alert(`This is the response -> ${res}`);
+});
     disableFaveButton(evt.target);
 });
 
 
-// send divData to the server
-$.get('/favorites', divData, (res) => {
-    //display response from the server
-    
-})
+
 
 
 
