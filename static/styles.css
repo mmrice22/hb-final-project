@@ -77,4 +77,11 @@ div.parks-container {
 .favorite-button {
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 3em;
+  border-radius: 5px;
+}
+
+.fa-heart {
+  font-size: x-small;
+  color: blueviolet;
 }
