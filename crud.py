@@ -59,7 +59,8 @@ def add_park(name, state, parkCode):
     
     if park is None:
         park = NationalPark(name = name,
-                        state = state)
+                        state = state,
+                        parkCode = parkCode)
 
         db.session.add(park)
         db.session.commit()
