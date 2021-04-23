@@ -117,10 +117,12 @@ def show_favorites():
         user_id = session["user_id"]
     
     #grab the specific liked park when the button in clicked
-    park_id = crud.get_park_by_id
 
-    name = request.args.get('park-name')
-    state = request.args.get('state-code')
+
+    name = request.args.get('parkName')
+    state = request.args.get('parkStateCode')
+    park_id = request.args.get('parkId')
+    print('\n\n\n', name, state, park_id,'\n\n\n' )
 
 
     park = crud.add_park(name,state)
