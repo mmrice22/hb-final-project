@@ -81,7 +81,8 @@ def create_favorite_by_id(user_id, park_id):
     """Create and add new favorite to Favorite table"""
 
 
-    favorite = NationalPark.query.filter(NationalPark.name == name).first()
+    favorite = Favorite.query.filter((Favorite.park_id == park_id) & (Favorite.user_id == user_id)).first()
+
 
     if favorite is None:
         favorite = Favorite(user_id= user_id, 
