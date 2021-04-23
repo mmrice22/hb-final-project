@@ -109,8 +109,7 @@ def find_parks():
 def make_favorite():
 
     parkCode = request.args.get('park', '')
-    description = request.args.get('description', '')
-    api_park = crud.get_park_from_api(parkCode, description)
+    api_park = crud.get_park_from_api(parkCode)
 
     return "Wow cool"
 
