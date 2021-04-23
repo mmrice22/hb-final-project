@@ -52,7 +52,7 @@ def get_parks():
 
 
 
-def add_park(name, state):
+def add_park(name, state, parkCode):
     """Add park to the National Park table"""
 
     park = NationalPark.query.filter(NationalPark.name == name).first()
@@ -71,6 +71,16 @@ def get_park_by_id(park_id):
     """Get a park by their id from the National Park table"""
 
     return NationalPark.query.get(park_id)
+
+
+def get_park_from_api(parkCode):
+
+    url = 'https://developer.nps.gov/api/v1/parks'
+
+
+    payload = {'api_key': api_key, 'parkCode': parkCode}
+    res = requests.get(url, params=payload)
+
 
 
 

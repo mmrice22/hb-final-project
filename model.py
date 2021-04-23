@@ -32,8 +32,7 @@ class NationalPark(db.Model):
 
     __tablename__ = 'parks'
 
-    park_id = db.Column(db.Integer,
-                        autoincrement = True,
+    park_id = db.Column(db.String,                  
                         primary_key = True)
     name = db.Column(db.String(100))
     state = db.Column(db.String(2))
@@ -59,7 +58,7 @@ class Favorite(db.Model):
                             primary_key = True)
     has_been = db.Column(db.Boolean, default = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    park_id = db.Column(db.Integer, db.ForeignKey('parks.park_id'))
+    park_id = db.Column(db.String, db.ForeignKey('parks.park_id'))
     
 
     user = db.relationship('User', backref = 'favorites')
@@ -80,7 +79,7 @@ class ParkActivity(db.Model):
     park_activity_id = db.Column(db.Integer,
                         primary_key = True,
                         autoincrement = True) 
-    park_id = db.Column(db.Integer,
+    park_id = db.Column(db.String,
                         db.ForeignKey('parks.park_id'),
                         nullable = False)
     activity_id = db.Column(db.Integer,
