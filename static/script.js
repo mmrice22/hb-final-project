@@ -11,6 +11,7 @@ $('.favorite-button').on('click', (evt) => {
     $(evt.target).addClass("clicked");
     // get info from the div that this button was inside of
     const divData = {
+        parkId: $('.park-id').data(),
         // get info stored in element with the class park-name
         parkName: $('.park-name').data(),
         // get info stored in element with the class park-description
@@ -20,12 +21,12 @@ $('.favorite-button').on('click', (evt) => {
         // get info stored in element with the class state-code
         parkStateCode: $('.state-code').data()
     };
+    console.log(divData);
     // get park data from the route it is in whish is the parks/search
-    $.get('/parks/search', divData, (res) => {
+    $.get('/favorites', divData, (res) => {
     //display response from the server
         alert(`This is the response -> ${res}`);
-    // then need to post it to the /favorites route
-    $.post('/favorites')
+
 });
     disableFaveButton(evt.target);
 });
