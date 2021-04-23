@@ -20,10 +20,12 @@ $('.favorite-button').on('click', (evt) => {
         // get info stored in element with the class state-code
         parkStateCode: $('.state-code').data()
     };
-    // send divData to the server
-    $.get('/favorites', divData, (res) => {
+    // get park data from the route it is in whish is the parks/search
+    $.get('/parks/search', divData, (res) => {
     //display response from the server
         alert(`This is the response -> ${res}`);
+    // then need to post it to the /favorites route
+    $.post('/favorites')
 });
     disableFaveButton(evt.target);
 });
