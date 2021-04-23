@@ -7,6 +7,7 @@ body %}
       {% for park in parks %}
       <div class="parks-container">
         <div class="parks-content" id="{{park.parkCode}}">
+          <p class="park-id">{{park.parkCode}}</p>
           <h3 class="park-name">{{park.fullName}}</h3>
           <p class="park-description">{{park.description}}</p>
           <p class="park-image">
