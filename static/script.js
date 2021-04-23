@@ -13,7 +13,7 @@ $('.favorite-button').on('click', (evt) => {
     const divData = {
         parkId: $('.park-id').data(),
         // get info stored in element with the class park-name
-        parkName: $('.park-name').data(),
+        parkName: $('.park-name').text(),
         // get info stored in element with the class park-description
         parkDescription: $('.park-description').data(),
         // get info stored in element with the class park-directions
