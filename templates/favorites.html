@@ -2,7 +2,9 @@
 
 <h2>Your Favorites page</h2>
 <div class="favorites-container">
+  {% for favorite in user_faves %}
   <div class="favorited-park"></div>
+  {{favorite.park.name}} {% endfor %}
 </div>
 
 {% endblock %}
