@@ -106,6 +106,67 @@ def create_favorite_by_id(user_id, park_id):
 
 
 
+def get_favorites_by_park_id(parkCode):
+    """Get a favorite using user_id and park_id"""
+    
+    park = get_park_from_api(parkCode)
+
+    get_favorites_by_id = park['data'][0]['parkCode']
+
+
+    return get_favorites_by_id
+
+
+
+def get_favorites_by_park_name(parkCode):
+    """Get a favorite using user_id and park_id"""
+    
+    park = get_park_from_api(parkCode)
+
+    get_favorites_by_park_name = park['data'][0]['fullName']
+
+
+    return get_favorites_by_park_name
+
+
+
+def get_favorites_by_description(parkCode):
+    """Get a favorite using user_id and park_id"""
+    
+    park = get_park_from_api(parkCode)
+
+    get_favorites_by_description = park['data'][0]['description']
+
+
+    return get_favorites_by_description
+
+
+
+def get_favorites_by_directions(parkCode):
+    """Get a favorite using user_id and park_id"""
+    
+    park = get_park_from_api(parkCode)
+
+    get_favorites_by_directions = park['data'][0]['directionsInfo']
+
+
+    return get_favorites_by_directions
+
+
+
+def get_favorites_by_state(parkCode):
+    """Get a favorite using user_id and park_id"""
+    
+    park = get_park_from_api(parkCode)
+
+    get_favorites_by_state = park['data'][0]['addresses'][0]['stateCode']
+
+
+    return get_favorites_by_state
+
+
+
+
 
 
 
