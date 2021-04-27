@@ -114,13 +114,16 @@ def make_favorite():
     api_park_name = api_park['data'][0]['fullName']
     api_park_state = api_park['data'][0]['addresses'][0]['stateCode']
     api_park_code = api_park['data'][0]['parkCode']
-    db_park = crud.add_park(name = api_park_name, state = api_park_state, park_id = api_park_code)
 
-
+    add_park_db = crud.add_park(name = api_park_name, state = api_park_state, park_id = api_park_code)
     
 
-    
-    #park = crud.add_park(name,state,park_id)
+    if "user_id" in session:
+        user_id = session["user_id"]
+
+    add_favorite_db = crud.create_favorite_by_id(user_id = user_id, park_id = api_park_code)
+
+
 
     return "Wow cool"
 
@@ -141,8 +144,6 @@ def show_favorites():
     park_id = request.args.get('parkId')
     print('\n\n\n', name, state, park_id,'\n\n\n' )
 
-
-    park = crud.add_park(name,state,parkCode)
     favorite = crud.create_favorite_by_id(user_id,park_id)
 
     return render_template('favorites.html', user_id = user_id, park_id = park_id)
