@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, session, redirect
+from flask import Flask, render_template, request, flash, session, redirect, jsonify
 from model import db, User, NationalPark, Favorite, ParkActivity, Activity, connect_to_db
 from pprint import pformat
 import crud
@@ -113,6 +113,7 @@ def make_favorite():
 
     api_park = crud.get_park_from_api(parkCode)
     api_park_name = api_park['data'][0]['fullName']
+    api_park_description = api_park['data'][0]['description']
     api_park_state = api_park['data'][0]['addresses'][0]['stateCode']
     api_park_code = api_park['data'][0]['parkCode']
 
@@ -123,14 +124,12 @@ def make_favorite():
         user_id = session["user_id"]
 
     add_favorite_db = crud.create_favorite_by_id(user_id = user_id, park_id = api_park_code)
-    
-    print('\n\n\n',crud.get_favorites_by_park_id(parkCode),'\n\n\n')
-    print('\n\n\n',crud.get_favorites_by_park_name(parkCode),'\n\n\n')
-    print('\n\n\n',crud.get_favorites_by_description(parkCode),'\n\n\n')
-    print('\n\n\n',crud.get_favorites_by_directions(parkCode),'\n\n\n')
-    print('\n\n\n',crud.get_favorites_by_state(parkCode),'\n\n\n')
-    return "yay I'm not broken for some reason"
 
+    
+    return jsonify(api_park['data'][0]['fullName'], 
+                    api_park['data'][0]['description'],
+                    api_park['data'][0]['directionsInfo'],
+                    api_park['data'][0]['addresses'][0]['stateCode'])
 
 
 @app.route('/favorites', methods = ['GET','POST'])
