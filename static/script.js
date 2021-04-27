@@ -12,23 +12,10 @@ $('.favorite-button').on('click', (evt) => {
     console.log(evt.target.value)
     // get info from the div that this button was inside of
     const parkCode = evt.target.value
-    // const divData = {
-    //     parkId: $('.park-id').data(),
-    //     // get info stored in element with the class park-name
-    //     parkName: $('.park-name').text(),
-    //     // get info stored in element with the class park-description
-    //     parkDescription: $('.park-description').data(),
-    //     // get info stored in element with the class park-directions
-    //     parkDirections: $('.park-directions').data(),
-    //     // get info stored in element with the class state-code
-    //     parkStateCode: $('.state-code').data()
-    // };
-
     // get park data from the route it is in whish is the parks/search
     $.get('/makefavorite', {"parkCode": parkCode}, (res) => {
     //display response from the server
         alert(`This is the response -> ${res}`);
-
 });
     disableFaveButton(evt.target);
 });
