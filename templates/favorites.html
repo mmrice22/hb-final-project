@@ -1,10 +1,18 @@
 {% extends 'base.html' %} {% block body %}
 
-<h2>Your Favorites page</h2>
-<div class="favorites-container">
+<h2 id="results-header">Your Favorites page</h2>
+<div id="search-results">
   {% for favorite in user_faves %}
-  <div class="favorited-park"></div>
-  {{favorite.park.name}} {% endfor %}
+  <div class="parks-container">
+    <div class="parks-content">
+      <h3 class="park-name">{{favorite.park.name}}</h3>
+      <h4 class="has-been-header">Have you Visited?</h4>
+      <p class="has-been">{{favorite.has_been}}</p>
+      <h4 class="favorite-state-header">State</h4>
+      <p class="favorite-state">{{favorite.park.state}}</p>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
