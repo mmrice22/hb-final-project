@@ -101,3 +101,21 @@ div.parks-container {
 .homepage-button {
   justify-content: center;
 }
+
+/*FAVORITES-RESULTS.html*/
+
+.favorite-state-header {
+  margin: 0;
+}
+
+.been-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 3em;
+  border-radius: 5px;
+}
+
+.fa-check {
+  font-size: x-small;
+  color: blueviolet;
+}
