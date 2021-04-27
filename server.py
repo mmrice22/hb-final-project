@@ -105,6 +105,7 @@ def find_parks():
                             pformat = pformat,
                             parks = parks,)
 
+
 @app.route('/makefavorite')
 def make_favorite():
 
@@ -124,8 +125,11 @@ def make_favorite():
     add_favorite_db = crud.create_favorite_by_id(user_id = user_id, park_id = api_park_code)
 
 
-
-    return "Wow cool"
+    return render_template('favorites.html',
+                            user_id = user_id, 
+                            name = api_park_name,
+                            state = api_park_state, 
+                            park_id = api_park_code )
 
 
 @app.route('/favorites', methods = ['GET','POST'])
