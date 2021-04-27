@@ -108,8 +108,17 @@ def find_parks():
 @app.route('/makefavorite')
 def make_favorite():
 
-    parkCode = request.args.get('park', '')
+    parkCode = request.args.get('parkCode', '')
+
     api_park = crud.get_park_from_api(parkCode)
+    print(api_park['data'][0]['fullName'])
+    db_park = crud.add_park(name = api_park['fullName'], state = 'tbd', park_id = 'tbd')
+
+
+    
+
+    
+    #park = crud.add_park(name,state,park_id)
 
     return "Wow cool"
 
