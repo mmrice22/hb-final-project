@@ -143,7 +143,7 @@ def show_favorites():
     
 
 
-    return render_template('favorites.html', user_id = user_id, park_id = park_id)
+    return render_template('favorites.html')
 
 
 
