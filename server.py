@@ -123,9 +123,14 @@ def make_favorite():
         user_id = session["user_id"]
 
     add_favorite_db = crud.create_favorite_by_id(user_id = user_id, park_id = api_park_code)
-
-
+    
+    print('\n\n\n',crud.get_favorites_by_park_id(parkCode),'\n\n\n')
+    print('\n\n\n',crud.get_favorites_by_park_name(parkCode),'\n\n\n')
+    print('\n\n\n',crud.get_favorites_by_description(parkCode),'\n\n\n')
+    print('\n\n\n',crud.get_favorites_by_directions(parkCode),'\n\n\n')
+    print('\n\n\n',crud.get_favorites_by_state(parkCode),'\n\n\n')
     return "yay I'm not broken for some reason"
+
 
 
 @app.route('/favorites', methods = ['GET','POST'])
@@ -136,15 +141,7 @@ def show_favorites():
     if "user_id" in session:
         user_id = session["user_id"]
     
-    #grab the specific liked park when the button in clicked
 
-
-    name = request.args.get('parkName')
-    state = request.args.get('parkStateCode')
-    park_id = request.args.get('parkId')
-    print('\n\n\n', name, state, park_id,'\n\n\n' )
-
-    favorite = crud.create_favorite_by_id(user_id,park_id)
 
     return render_template('favorites.html', user_id = user_id, park_id = park_id)
 
