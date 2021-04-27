@@ -10,9 +10,13 @@
       <p class="has-been">{{favorite.has_been}}</p>
       <h4 class="favorite-state-header">State</h4>
       <p class="favorite-state">{{favorite.park.state}}</p>
+      <div class="button-container">
+        <button type="submit" class="been-button">
+          <i class="fas fa-check"></i>
+        </button>
+      </div>
     </div>
   </div>
   {% endfor %}
 </div>
-
 {% endblock %}
