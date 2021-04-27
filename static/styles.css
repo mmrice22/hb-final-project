@@ -17,6 +17,10 @@ body {
   left: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*HOMEPAGE.html*/
 
 .content-wrap {
@@ -84,4 +88,16 @@ div.parks-container {
 .fa-heart {
   font-size: x-small;
   color: blueviolet;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+}
+
+.go-to-favorites,
+.back-to-search,
+.homepage-button {
+  justify-content: center;
 }
