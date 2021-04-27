@@ -111,8 +111,10 @@ def make_favorite():
     parkCode = request.args.get('parkCode', '')
 
     api_park = crud.get_park_from_api(parkCode)
-    print(api_park['data'][0]['fullName'])
-    db_park = crud.add_park(name = api_park['fullName'], state = 'tbd', park_id = 'tbd')
+    api_park_name = api_park['data'][0]['fullName']
+    api_park_state = api_park['data'][0]['addresses'][0]['stateCode']
+    api_park_code = api_park['data'][0]['parkCode']
+    db_park = crud.add_park(name = api_park_name, state = api_park_state, park_id = api_park_code)
 
 
     
