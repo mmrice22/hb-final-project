@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block body %}
 
-<h2 id="results-header">Your Favorites page</h2>
+<h2 id="results-header">Your Favorite National Parks</h2>
 <div id="search-results">
   {% for favorite in user_faves %}
   <div class="parks-container">
@@ -19,5 +19,11 @@
     </div>
   </div>
   {% endfor %}
+</div>
+<div class="buttons-container">
+  <button class="back-to-search">
+    <a href="/findparks">Search more parks</a>
+  </button>
+  <button class="homepage-button"><a href="/">Go to Homepage</a></button>
 </div>
 {% endblock %}
