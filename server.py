@@ -123,13 +123,12 @@ def make_favorite():
     if "user_id" in session:
         user_id = session["user_id"]
 
+
     add_favorite_db = crud.create_favorite_by_id(user_id = user_id, park_id = api_park_code)
 
     
-    return jsonify(api_park['data'][0]['fullName'], 
-                    api_park['data'][0]['description'],
-                    api_park['data'][0]['directionsInfo'],
-                    api_park['data'][0]['addresses'][0]['stateCode'])
+    return jsonify(api_park['data'][0]['fullName']) 
+
 
 
 @app.route('/favorites', methods = ['GET','POST'])
