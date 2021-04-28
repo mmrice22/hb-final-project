@@ -35,6 +35,7 @@ class NationalPark(db.Model):
     park_id = db.Column(db.String,                  
                         primary_key = True)
     name = db.Column(db.String(100))
+    description = db.Column(db.String)
     state = db.Column(db.String(2))
 
     # has a relationship with Favorite table
