@@ -15,7 +15,7 @@ $('.favorite-button').on('click', (evt) => {
     // get park data from the route it is in whish is the parks/search
     $.get('/makefavorite', {"parkCode": parkCode}, (res) => {
     //display response from the server
-        alert(`This is the response -> ${res}`);
+        alert(`You've successfully added ${res} to your favorites!`);
         
 });
     disableFaveButton(evt.target);
