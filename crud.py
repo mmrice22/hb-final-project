@@ -114,6 +114,24 @@ def get_favorites_by_park_id(parkCode):
 
 
 
+def change_has_been_to_true(has_been):
+    """Change visited park to true when button is clicked"""
+
+    has_been = False
+
+    if has_been == False:
+        has_been = Favorite(has_been = True)
+        db.session.add(has_been)
+        db.session.commit()
+
+    return has_been
+
+        
+
+
+
+    
+
 
 
 
