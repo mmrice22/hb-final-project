@@ -140,7 +140,7 @@ def show_favorites():
         user_id = session["user_id"]
     
     user_faves = Favorite.query.options(db.joinedload('park')).filter(Favorite.user_id == user_id).all()
-    print(user_faves)
+    #print(user_faves)
 
     return render_template('favorites.html', user_faves = user_faves)
 
