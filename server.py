@@ -117,7 +117,7 @@ def make_favorite():
     api_park_state = api_park['data'][0]['addresses'][0]['stateCode']
     api_park_code = api_park['data'][0]['parkCode']
 
-    add_park_db = crud.add_park(name = api_park_name, state = api_park_state, park_id = api_park_code)
+    add_park_db = crud.add_park(name = api_park_name, state = api_park_state, description = api_park_description, park_id = api_park_code)
     
 
     if "user_id" in session:
