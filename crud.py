@@ -52,7 +52,7 @@ def get_parks():
 
 
 
-def add_park(name, state, park_id):
+def add_park(name, state, description, park_id):
     """Add park to the National Park table"""
 
     park = NationalPark.query.filter(NationalPark.name == name).first()
@@ -60,6 +60,7 @@ def add_park(name, state, park_id):
     if park is None:
         park = NationalPark(name = name,
                         state = state,
+                        description = description,
                         park_id = park_id)
 
         db.session.add(park)
