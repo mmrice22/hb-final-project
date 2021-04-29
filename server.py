@@ -150,9 +150,16 @@ def show_favorites():
 @app.route('/visited.json', methods = ['POST'])
 def change_visited():
     """Change has_been to true when button is clicked"""
+    
+    
+    if "user_id" in session:
+        user_id = session["user_id"]
+        #print(user_id)
+
+    
 
 
-    change_visited = crud.change_has_been_to_true(has_been = True)
+    # change_visited = crud.change_has_been_to_true(favorite_id)
 
     return 'This did not break'
 
