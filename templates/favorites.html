@@ -12,7 +12,11 @@
       <h4 class="favorite-state-header">State</h4>
       <p class="favorite-state">{{favorite.park.state}}</p>
       <div class="button-container">
-        <button type="submit" class="been-button">
+        <button
+          type="submit"
+          class="been-button"
+          value="{{favorite.park.park_id}}"
+        >
           <i class="fas fa-check"></i>
         </button>
       </div>
