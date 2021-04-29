@@ -101,14 +101,25 @@ def create_favorite_by_id(user_id, park_id):
     return favorite
 
 
+def get_user_faves(user_id):
+    """Show all the users favorited parks"""
+
+    user_faves = Favorite.query.options(db.joinedload('park')).filter(Favorite.user_id == user_id).all()
+
+    return user_faves
+
+
 
 def get_fav_by_id(user_id,park_id):
-    """Get favorite by favorite_id"""
+    """Get favorite by user_id and park_id"""
 
     return Favorite.query.filter(Favorite.park_id == park_id).filter(Favorite.user_id == user_id).first()
 
 
+def change_visited(fav_obj):
+    """Change has_been from false to true in Favorites table"""
 
+    
 
         
 
