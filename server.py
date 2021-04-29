@@ -154,12 +154,14 @@ def change_visited():
     
     if "user_id" in session:
         user_id = session["user_id"]
-        #print(user_id)
-
-    
+        print(user_id)
 
 
-    # change_visited = crud.change_has_been_to_true(favorite_id)
+    favorite_id = request.form["parkCode"]
+    print(favorite_id)
+
+
+
 
     return 'This did not break'
 
