@@ -102,19 +102,19 @@ def create_favorite_by_id(user_id, park_id):
 
 
 
+def get_fav_by_id(park_id):
+    """Get favorite by favorite_id"""
+
+    return Favorite.query.filter(Favorite.park_id == park_id).first()
 
 
-def has_been(user_id, favorite_id):
+
+def has_been(fav_obj):
     """Change visited park to true when button is clicked"""
 
+    favorite = get_fav_by_id(park_id)
 
-
-
-    # favorited = Favorite.query.filter((Favorite.favorite_id == favorite_id) & (Favorite.favorite.user_id == user_id)).first()
-    # favorited.has_been = True
-    # db.session.commit()
-
-    # favorite_id = Favorite.query.get()
+    
 
 
     return has_been
