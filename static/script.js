@@ -34,12 +34,15 @@ $('.been-button').on('click', (evt) => {
     $(evt.target).addClass("clicked");
     //console.log(evt.target);
     const data = {
-        'parkCode': $(evt.target).val()
+        // 'parkCode': $(evt.target).val()
+        'parkCode': $(evt.target).data("park-id")
     };
-    console.log(data)
+    console.log(data);
 
     $.post('/visited.json', data, (res) => {
-        alert(`You have successfully changed your visit status to ${res} to True`)
+        alert(`Yay, you have visited ${res}`);
+        $(`#has_been_${data.parkCode}`).html("True");
+        console.log(`#has_been_${data.parkCode}`)
     });
     disableCheckButton(evt.target);
 });
