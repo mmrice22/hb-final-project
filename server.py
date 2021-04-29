@@ -163,14 +163,15 @@ def change_visited():
     fav_obj = crud.get_fav_by_id(park_id)
     print(fav_obj)
 
-    favorite = crud.has_been(fav_obj)
-    print(favorite)
+    # print(fav_obj.has_been)
+
+    fav_obj.has_been = True
+    print(fav_obj.has_been)
+    db.session.commit()
 
 
 
-
-
-    return 'This did not break'
+    return jsonify(park_id)
 
 
 
