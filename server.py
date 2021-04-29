@@ -139,8 +139,11 @@ def show_favorites():
     if "user_id" in session:
         user_id = session["user_id"]
     
-    user_faves = Favorite.query.options(db.joinedload('park')).filter(Favorite.user_id == user_id).all()
+    #this works --- trying to move all querys to crud.py
+    # user_faves = Favorite.query.options(db.joinedload('park')).filter(Favorite.user_id == user_id).all()
     #print(user_faves)
+
+    user_faves = crud.get_user_faves(user_id)
 
     return render_template('favorites.html', user_faves = user_faves)
 
