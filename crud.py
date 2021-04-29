@@ -102,10 +102,10 @@ def create_favorite_by_id(user_id, park_id):
 
 
 
-def get_fav_by_id(park_id):
+def get_fav_by_id(user_id,park_id):
     """Get favorite by favorite_id"""
 
-    return Favorite.query.filter(Favorite.park_id == park_id).first()
+    return Favorite.query.filter(Favorite.park_id == park_id).filter(Favorite.user_id == user_id).first()
 
 
 
