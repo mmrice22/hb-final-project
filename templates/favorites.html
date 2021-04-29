@@ -15,8 +15,14 @@
         <button
           type="submit"
           class="been-button"
+          name="parkCode"
           value="{{favorite.park.park_id}}"
         >
+          <input
+            type="hidden"
+            name="parkCode"
+            value="{{ favorite.park.park_id }}"
+          />
           <i class="fas fa-check"></i>
         </button>
       </div>
