@@ -39,7 +39,7 @@ $('.been-button').on('click', (evt) => {
     console.log(data)
 
     $.post('/visited.json', data, (res) => {
-        alert(res)
+        alert(`You have successfully changed your visit status to ${res} to True`)
     });
     disableCheckButton(evt.target);
 });
