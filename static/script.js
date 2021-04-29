@@ -32,10 +32,11 @@ const disableCheckButton = () => {
 
 $('.been-button').on('click', (evt) => {
     $(evt.target).addClass("clicked");
-    console.log(evt.target);
+    //console.log(evt.target);
     const data = {
-        'hasBeen': $('.has-been').val()
+        'parkCode': $(evt.target).val()
     };
+    console.log(data)
 
     $.post('/visited.json', data, (res) => {
         alert(res)
