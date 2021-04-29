@@ -102,27 +102,52 @@ def create_favorite_by_id(user_id, park_id):
 
 
 
-def get_favorites_by_park_id(parkCode):
-    """Get a favorite using user_id and park_id"""
+# def get_favorites_by_park_id(parkCode):
+#     """Get a favorite using user_id and park_id"""
     
-    park = get_park_from_api(parkCode)
+#     park = get_park_from_api(parkCode)
 
-    get_favorites_by_id = park['data'][0]['parkCode']
-
-
-    return get_favorites_by_id
+#     get_favorites_by_id = park['data'][0]['parkCode']
 
 
+#     return get_favorites_by_id
 
-def change_has_been_to_true(has_been):
+
+def get_favorite_by_park_id(park_id):
+    """Get a favorite by park_id"""
+
+    return Favorite.query.get(park_id)
+    
+
+
+def get_favorite_by_id(favorite_id):
+    """Get a favorite by its id"""
+
+    return Favorite.query.get(favorite_id)
+
+
+def get_user_id(user_id):
+    """Get a user in the Favorites table by their user_id"""
+
+    return Favorite.query.get(user_id)
+
+
+
+def change_has_been_to_true(user_id, favorite_id):
     """Change visited park to true when button is clicked"""
 
-    has_been = False
 
-    if has_been == False:
-        has_been = Favorite(has_been = True)
-        db.session.add(has_been)
-        db.session.commit()
+    favorited = Favorite.query.filter((Favorite.favorite_id == favorite_id) & (Favorite.favorite.user_id == user_id)).first()
+    favorited.has_been = True
+    #db.session.commit()
+
+    # favorite_id = Favorite.query.get()
+
+
+    # if favorite_id:
+    #     has_been = Favorite(has_been = True)
+    #     db.session.add(has_been)
+    #     db.session.commit()
 
     return has_been
 
