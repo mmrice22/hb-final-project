@@ -157,8 +157,15 @@ def change_visited():
         print(user_id)
 
 
-    favorite_id = request.form["parkCode"]
-    print(favorite_id)
+    park_id = request.form["parkCode"]
+    print(park_id)
+
+    fav_obj = crud.get_fav_by_id(park_id)
+    print(fav_obj)
+
+    favorite = crud.has_been(fav_obj)
+    print(favorite)
+
 
 
 
