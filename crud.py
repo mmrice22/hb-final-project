@@ -109,15 +109,6 @@ def get_fav_by_id(park_id):
 
 
 
-def has_been(fav_obj):
-    """Change visited park to true when button is clicked"""
-
-    favorite = get_fav_by_id(park_id)
-
-    
-
-
-    return has_been
 
         
 
