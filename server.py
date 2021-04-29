@@ -163,7 +163,6 @@ def change_visited():
     fav_obj = crud.get_fav_by_id(user_id, park_id)
     print(fav_obj)
 
-    # print(fav_obj.has_been)
 
     fav_obj.has_been = True
     print(fav_obj.has_been)
@@ -180,6 +179,7 @@ def change_visited():
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
+    flash("You've successfully logged out")
     return redirect('/')
 
 
