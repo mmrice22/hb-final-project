@@ -1,7 +1,8 @@
-import unittest
+import unittest 
 from server import app
 from model import connect_to_db, db
 from flask import session
+from test_seed  import create_example_data
 
 
 class FlaskTests(unittest.TestCase):
@@ -14,10 +15,20 @@ class FlaskTests(unittest.TestCase):
         self.client = app.test_client()
         app.config['TESTING'] = True
 
-        connect_to_db(app, "postgresql:///parks")
+        connect_to_db(app, "postgresql:///testdb")
+        db.create_all()
+        create_example_data()
 
+
+    def tearDown(self):
+        """Do at end of every test."""
+
+        db.session.remove()
+        db.drop_all()
+        db.engine.dispose()
 
     
+
     def test_homepage_route(self):
         """Test the homepage route of app"""
 
@@ -49,12 +60,25 @@ class FlaskTestsSession(unittest.TestCase):
         """Do before every test"""
 
         app.config['TESTING'] = True
-        app.config['SECRET_KEY'] = 'SECRETKEYSECRETKEYSECRETKEY'
+        app.config['SECRET_KEY'] = 'key'
         self.client = app.test_client()
+
+        connect_to_db(app, "postgresql:///testdb")
+        db.create_all()
+        create_example_data()
 
         with self.client as c:
             with c.session_transaction() as sess:
                 sess['user_id'] = 1
+
+
+
+    def tearDown(self):
+        """Do at end of every test."""
+
+        db.session.remove()
+        db.drop_all()
+        db.engine.dispose()
 
 
 
