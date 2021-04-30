@@ -114,13 +114,6 @@ def get_fav_by_id(user_id,park_id):
     """Get favorite by user_id and park_id"""
 
     return Favorite.query.filter(Favorite.park_id == park_id).filter(Favorite.user_id == user_id).first()
-
-
-def change_visited(fav_obj):
-    """Change has_been from false to true in Favorites table"""
-
-    
-
         
 
 
