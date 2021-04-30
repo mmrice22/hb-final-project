@@ -38,6 +38,9 @@ class FlaskTests(unittest.TestCase):
 
 
 
+
+
+
 class FlaskTestsSession(unittest.TestCase):
     """Test a Flask route that requires a user to be in session"""
     
@@ -58,8 +61,10 @@ class FlaskTestsSession(unittest.TestCase):
     def test_parks_form_page(self):
         """Test search form parks page"""
 
-        result = self.client.get("/findparks")
+        result = self.client.get("/findparks", follow_redirects=True)
         self.assertIn(b"Welcome back", result.data)
+        self.assertNotIn(b"Log In", result.data)
+
 
 
    
