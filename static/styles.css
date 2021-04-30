@@ -5,13 +5,12 @@ body {
 }
 
 .footer-container {
-  position: relative;
   min-height: 100%;
-  min-height: 100vh;
+  position: absolute;
 }
 
 .site-footer {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
