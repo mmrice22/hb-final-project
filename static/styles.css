@@ -6,22 +6,34 @@ body {
   background-color: azure;
 }
 
-.footer-container {
-  flex: 1 0 auto;
-}
-
-.site-footer {
-  flex-shrink: 0;
+.nav {
+  display: flex;
+  justify-content: flex-end;
 }
 
 a {
   text-decoration: none;
 }
 
+.a-nav {
+  text-decoration: none;
+  padding: 5px;
+}
+
 ul {
   display: flex;
   margin: 5px;
   padding: 10px 0px;
+}
+
+.footer-container {
+  flex: 1 0 auto;
+  height: fit-content;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  padding-left: 10px;
 }
 
 /*HOMEPAGE.html*/
@@ -40,8 +52,39 @@ ul {
   width: 75vw;
 }
 
+.homepage-text {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .form-signup {
   display: none;
+}
+
+/*LOGIN.HTML*/
+
+.form-containter {
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrap {
+  display: flex;
+  justify-content: center;
+  width: 75vw;
+  background-color: white;
+}
+
+/*SEARCH-FORM.HTML*/
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
 }
 
 /*SEARCH-RESULTS.html*/
