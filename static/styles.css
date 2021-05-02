@@ -1,19 +1,23 @@
 /*BASE.html*/
+html,
+body {
+  height: 100%;
+}
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: azure;
 }
 
 .footer-container {
-  min-height: 100%;
-  position: absolute;
+  flex: 1 0 auto;
+  /* min-height: 100%; */
+  /* position: absolute; */
 }
 
 .site-footer {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  flex-shrink: 0;
 }
 
 a {
@@ -28,8 +32,18 @@ ul {
 
 /*HOMEPAGE.html*/
 
+.welcome-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .content-wrap {
-  padding-bottom: 2.5 rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 75vw;
 }
 
 .form-signup {
