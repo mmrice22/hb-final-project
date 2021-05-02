@@ -32,6 +32,10 @@ ul {
   padding-bottom: 2.5 rem;
 }
 
+.form-signup {
+  display: none;
+}
+
 /*SEARCH-RESULTS.html*/
 
 #results-header {

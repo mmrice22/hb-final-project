@@ -1,3 +1,13 @@
+// SHOW CREATE AN ACCOUNT FORM
+
+$("#show-form-button").click(() => {
+    $(".form-signup").toggle();
+});
+
+
+
+
+
 // CREATE A FAVORITE BY CLICKING HEART BUTTON
 
 const disableFaveButton = () => {
