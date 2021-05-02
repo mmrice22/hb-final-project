@@ -33,11 +33,15 @@ $('.favorite-button').on('click', (evt) => {
 
 
 
+
+// CHANGE HAVE YOU VISITED TO TRUE BY CHECKMARK BUTTON
+
 const disableCheckButton = () => {
     if ($("button").hasClass("clicked")){
         $("button.clicked").attr('disabled', true)
     };  
 };
+
 
 
 $('.been-button').on('click', (evt) => {
@@ -56,9 +60,4 @@ $('.been-button').on('click', (evt) => {
     });
     disableCheckButton(evt.target);
 });
-
-
-
-
-
 

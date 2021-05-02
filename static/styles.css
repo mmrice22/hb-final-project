@@ -125,8 +125,7 @@ div.parks-container {
   margin: 0;
 }
 
-.been-button,
-.remove-btn {
+.been-button {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 3em;
@@ -135,15 +134,10 @@ div.parks-container {
 
 .button-container {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .fa-check {
   font-size: x-small;
-  color: blueviolet;
-}
-
-.fa-trash-alt {
   color: blueviolet;
 }
