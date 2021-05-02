@@ -1,4 +1,4 @@
-// SHOW CREATE AN ACCOUNT FORM
+// SHOW CREATE AN ACCOUNT FORM ON BUTTON CLICK
 
 $("#show-form-button").click(() => {
     $(".form-signup").toggle();
