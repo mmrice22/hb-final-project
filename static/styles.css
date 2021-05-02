@@ -1,8 +1,4 @@
 /*BASE.html*/
-html,
-body {
-  height: 100%;
-}
 
 body {
   display: flex;
@@ -12,8 +8,6 @@ body {
 
 .footer-container {
   flex: 1 0 auto;
-  /* min-height: 100%; */
-  /* position: absolute; */
 }
 
 .site-footer {
