@@ -19,6 +19,19 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+.flash-msg {
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  width: 25%;
 }
 
 .nav {
@@ -44,11 +57,14 @@ ul {
 .footer-container {
   flex: 1 0 auto;
   height: fit-content;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .site-footer {
-  flex-shrink: 0;
-  padding-left: 10px;
+  margin: 10px;
+  padding-left: 20px;
+  position: absolute;
 }
 
 /*HOMEPAGE.html*/
