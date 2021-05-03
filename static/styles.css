@@ -1,9 +1,24 @@
 /*BASE.html*/
 
+html {
+  background-image: url("https://images.unsplash.com/photo-1527549993586-dff825b37782?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  background-color: azure;
+  /* background-color: azure; */
+  background-image: url("https://images.unsplash.com/photo-1527549993586-dff825b37782?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .nav {
@@ -49,7 +64,9 @@ ul {
   flex-direction: column;
   align-items: center;
   background-color: white;
+  opacity: 0.8;
   width: 75vw;
+  border-radius: 20px;
 }
 
 .homepage-text {
@@ -74,6 +91,29 @@ ul {
   justify-content: center;
   width: 75vw;
   background-color: white;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding-bottom: 2em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.labels {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.input {
+  padding: 5px;
+}
+
+.submit-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 /*SEARCH-FORM.HTML*/
