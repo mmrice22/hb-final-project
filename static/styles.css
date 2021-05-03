@@ -201,7 +201,7 @@ ul {
 div.parks-container {
   display: flex;
   justify-content: center;
-  background-color: rgba(198, 249, 248, 0.94);
+  background-color: #d7f8f9;
   opacity: 0.9;
   /* background-color: #EDA26A; */
   border: 5px solid white;
@@ -215,7 +215,7 @@ div.parks-container {
 }
 
 /* div.parks-container:hover {
-  background-color: #eda26a;
+  background-color: #ffbb7a;
 } */
 
 .parks-content {
@@ -259,8 +259,17 @@ div.parks-container {
 
 .go-to-favorites,
 .back-to-search,
-.homepage-button {
+.homepage-button,
+.logout-button {
   justify-content: center;
+  margin: 10px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.fav-links {
+  color: #eda26a;
 }
 
 /*FAVORITES-RESULTS.html*/
