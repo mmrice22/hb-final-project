@@ -49,6 +49,10 @@ a {
   padding: 5px;
 }
 
+.a-nav:hover {
+  color: #eda26a;
+}
+
 ul {
   display: flex;
   margin: 5px;
@@ -198,6 +202,8 @@ div.parks-container {
   display: flex;
   justify-content: center;
   background-color: rgba(198, 249, 248, 0.94);
+  opacity: 0.9;
+  /* background-color: #EDA26A; */
   border: 5px solid white;
   border-radius: 20px;
   padding: 5px;
@@ -207,6 +213,10 @@ div.parks-container {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+/* div.parks-container:hover {
+  background-color: #eda26a;
+} */
 
 .parks-content {
   margin: 10px;
@@ -234,11 +244,11 @@ div.parks-container {
   margin-bottom: 10px;
   width: 3em;
   border-radius: 5px;
+  background-color: white;
 }
 
 .fa-heart {
-  font-size: x-small;
-  color: blueviolet;
+  color: #eda26a;
 }
 
 .buttons-container {
@@ -264,6 +274,7 @@ div.parks-container {
   margin-bottom: 10px;
   width: 3em;
   border-radius: 5px;
+  background-color: white;
 }
 
 .button-container {
@@ -272,6 +283,5 @@ div.parks-container {
 }
 
 .fa-check {
-  font-size: x-small;
-  color: blueviolet;
+  color: #eda26a;
 }
