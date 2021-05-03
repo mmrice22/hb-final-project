@@ -6,10 +6,18 @@
       Welcome back {{ user.fname }}! Pick a state and let's see what they have
       to offer!
     </h2>
-    <form method="GET" action="/parks/search">
-      <label for="states">Search by State Code </label>
-      <input type="text" name="state" maxlength="2" required />
-      <input type="submit" />
+    <form class="search-state-form" method="GET" action="/parks/search">
+      <label class="search-heading" for="states"
+        >Search by two letter State Code:
+      </label>
+      <input
+        class="state-code"
+        type="text"
+        name="state"
+        maxlength="2"
+        required
+      />
+      <input class="submit-btn" type="submit" />
     </form>
   </div>
 </main>

@@ -41,6 +41,7 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .a-nav {
@@ -141,6 +142,20 @@ ul {
 
 .header {
   text-align: center;
+}
+
+.search-state-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.search-heading {
+  margin-bottom: 5px;
+}
+
+.submit-btn {
+  margin-top: 5px;
 }
 
 /*SEARCH-RESULTS.html*/
