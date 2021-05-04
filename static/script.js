@@ -54,7 +54,7 @@ $('.been-button').on('click', (evt) => {
     console.log(data);
 
     $.post('/visited.json', data, (res) => {
-        alert(`Yay, you have visited ${res}`);
+        alert(`Congrats, you've changed this park's visit status to true!`);
         $(`#has_been_${data.parkCode}`).html("True");
         console.log(`#has_been_${data.parkCode}`)
     });
