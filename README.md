@@ -1,3 +1,1 @@
-# Alt-H1
-
-Welcome to WanderList
+# Welcome to WanderList!
