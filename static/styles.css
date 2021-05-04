@@ -180,6 +180,7 @@ button {
 .form-container {
   display: flex;
   justify-content: center;
+  height: 19em;
 }
 
 .content-wrap-search {
