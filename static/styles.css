@@ -21,10 +21,12 @@ body {
   background-size: cover;
   position: relative;
   min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
 }
 
 .flash-msg {
-  background-color: white;
+  background-color: #eda26a;
+  color: white;
   opacity: 0.8;
   border-radius: 20px;
   margin: 10px;
@@ -41,7 +43,9 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #eda26a;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
 }
 
 .a-nav {
@@ -50,13 +54,19 @@ a {
 }
 
 .a-nav:hover {
-  color: #eda26a;
+  color: white;
 }
 
 ul {
   display: flex;
   margin: 5px;
   padding: 10px 0px;
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
+  border-radius: 20px;
+  border: solid #eda26a;
 }
 
 .footer-container {
@@ -69,6 +79,7 @@ ul {
 .site-footer {
   margin: 10px;
   padding-left: 20px;
+  color: white;
   /* position: absolute; */
 }
 
@@ -99,6 +110,15 @@ ul {
 .image-container {
   display: flex;
   justify-content: center;
+}
+
+#show-form-button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  border-radius: 20px;
+  background-color: white;
+  color: #eda26a;
+  border: solid #eda26a;
 }
 
 .hp-image {
@@ -144,7 +164,10 @@ ul {
 .submit-button {
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  background-color: white;
+  color: #eda26a;
+  font-weight: bold;
+  border: solid #eda26a;
 }
 
 /*SEARCH-FORM.HTML*/
@@ -180,6 +203,12 @@ ul {
 
 .submit-btn {
   margin-top: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  border-radius: 20px;
+  background-color: white;
+  color: #eda26a;
+  border: solid #eda26a;
 }
 
 /*SEARCH-RESULTS.html*/
@@ -263,9 +292,10 @@ div.parks-container {
 .logout-button {
   justify-content: center;
   margin: 10px;
-  background-color: white;
   border-radius: 20px;
   padding: 5px;
+  background-color: white;
+  color: #eda26a;
 }
 
 .fav-links {
