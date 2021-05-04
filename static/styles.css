@@ -63,6 +63,11 @@ ul {
   padding: 10px 0px;
 }
 
+/* h1,
+h2 {
+  color: #eda26a;
+} */
+
 button {
   font-family: "Open Sans", sans-serif;
   border-radius: 20px;
@@ -230,9 +235,8 @@ button {
 div.parks-container {
   display: flex;
   justify-content: center;
-  background-color: #d7f8f9;
-  opacity: 0.9;
-  /* background-color: #EDA26A; */
+  background-color: white;
+  opacity: 0.8;
   border: 5px solid white;
   border-radius: 20px;
   padding: 5px;
