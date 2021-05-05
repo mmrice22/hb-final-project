@@ -5,6 +5,21 @@ Learn more about the creator of WanderList: www.linkedin.com/in/melissa-rice22
 <h2>The What</h2>
 WanderList is a fullstack web application that allows users to search for all the National Parks in the US by state, and then add them to their "Favorites" page. To start, a user must create an account and login using an email and password. Once the user is logged in, they will be asked to pick a state of interest using the states postal code (ex. Michigan Postal Code is MI). Once they click submit, they will be taken to a page that lists all of the National Parks in that state along with their description, the directions, and the state postal code the park resides in. A user can then read through the list and add a park to their favorites by clicking the heart button. Once they head over to the favorites page, they can choose to change the visit status from false to true and keep the park as a favorite while searching for more!
 
+<h4>Homepage</h4>
+<img alt="homepage"src="static/images/homepage.png"></img>
+
+<h4>Login Page</h4>
+<img alt="login-page"src="static/images/login-page.png"></img>
+
+<h4>Search for Parks Page</h4>
+<img alt="search-page"src="static/images/findparks-page.png"></img>
+
+<h4>Results Page</h4>
+<img alt="results-page"src="static/images/search-results.png"></img>
+
+<h4>Favorites Page</h4>
+<img alt="favorites-page"src="static/images/favorites-page.png"></img>
+
 <h2>The How</h2>
 <h4>Technology Used</h4>
 <ul>
