@@ -19,6 +19,7 @@ const disableFaveButton = () => {
 
 $('.favorite-button').on('click', (evt) => {
     $(evt.target).addClass("clicked");
+    $(evt.target).css("border", "hidden")
     //console.log(evt.target.value)
     // get info from the div that this button was inside of
     const parkCode = evt.target.value
@@ -46,7 +47,7 @@ const disableCheckButton = () => {
 
 $('.been-button').on('click', (evt) => {
     $(evt.target).addClass("clicked");
-    //console.log(evt.target);
+    $(evt.target).css("border", "hidden")
     const data = {
         // 'parkCode': $(evt.target).val()
         'parkCode': $(evt.target).data("park-id")
