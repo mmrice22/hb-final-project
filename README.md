@@ -34,6 +34,7 @@ Run these commands:
 > > > python3 -i seed_database.py
 
     * this will create the database and populate it with data.
+    * Exit out of python interactive
 
 > > > virtualenv env
 
@@ -53,7 +54,7 @@ Run these commands:
 
 <h2>The Why</h2>
 WanderList was created for the world travelers, the history buffs, the doctors, the vagabonds, the students, the wanderers, the "typical" person, and all those who are interested in visiting the beautiful National Parks in the United States. COVID-19 took a lot from all of us, but it couldn't take away the great outdoors!
-
 <p>
-<img src="static/images/pictured-rocks.jpg"></img>
+<h4>Pictured Rocks National Park, Michigan, 2020</h4>
+<img alt="Creator at Pictured Rocks National Park in Michigan, 2020"src="static/images/pictured-rocks.jpg"></img>
 </p>
