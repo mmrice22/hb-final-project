@@ -33,9 +33,13 @@
         </ul>
       </nav>
     </div>
-    {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">{{ msg }}</p>
-    {% endfor %} {% block body %}{% endblock %} {% block after_body %}
+    <div align="center">
+      {% for msg in get_flashed_messages() %}
+      <p class="flash-msg">{{ msg }}</p>
+
+      {% endfor %}
+    </div>
+    {% block body %}{% endblock %} {% block after_body %}
     <div class="footer-container">
       <footer class="site-footer">
         <h3>About</h3>
