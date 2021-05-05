@@ -29,13 +29,6 @@ WanderList has not been deployed, but it can be ran locally on your machine.
 </ul>
 Run these commands:
 
-> > > pip3 install -r requirements.txt
-
-> > > python3 -i seed_database.py
-
-    * this will create the database and populate it with data.
-    * Exit out of python interactive
-
 > > > virtualenv env
 
     * set up virtual env
@@ -44,9 +37,16 @@ Run these commands:
 
     * activate virtual env
 
+> > > pip3 install -r requirements.txt
+
 > > > source secrets.sh
 
     * to use your API key in the request.
+
+> > > python3 -i seed_database.py
+
+    * this will create the database and populate it with data.
+    * Exit out of python interactive
 
 > > > python3 server.py
 
