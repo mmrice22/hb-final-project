@@ -18,18 +18,18 @@ const disableFaveButton = () => {
 
 
 $('.favorite-button').on('click', (evt) => {
-    $(evt.target).addClass("clicked");
-    $(evt.target).css("border", "hidden")
+    $(evt.currentTarget).addClass("clicked");
+    $(evt.currentTarget).css("border", "hidden")
     // console.log(evt.target.value)
     // get info from the div that this button was inside of
-    const parkCode = evt.target.value
+    const parkCode = evt.currentTarget.value
     // get park data from the route it is in whish is the parks/search
     $.get('/makefavorite.json', {"parkCode": parkCode}, (res) => {
     //display response from the server
         alert(`You've successfully added ${res} to your favorites!`);
         
 });
-    disableFaveButton(evt.target);
+    disableFaveButton(evt.currentTarget);
 });
 
 
@@ -46,11 +46,11 @@ const disableCheckButton = () => {
 
 
 $('.been-button').on('click', (evt) => {
-    $(evt.target).addClass("clicked");
-    $(evt.target).css("border", "hidden")
+    $(evt.currentTarget).addClass("clicked");
+    $(evt.currentTarget).css("border", "hidden")
     const data = {
         // 'parkCode': $(evt.target).val()
-        'parkCode': $(evt.target).data("park-id")
+        'parkCode': $(evt.currentTarget).data("park-id")
     };
     console.log(data);
 
@@ -59,6 +59,6 @@ $('.been-button').on('click', (evt) => {
         $(`#has_been_${data.parkCode}`).html("True");
         console.log(`#has_been_${data.parkCode}`)
     });
-    disableCheckButton(evt.target);
+    disableCheckButton(evt.currentTarget);
 });
 
