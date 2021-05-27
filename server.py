@@ -50,13 +50,18 @@ def register_user():
 def login():
     """Show Login Form"""
 
+    # first check and see if user is already in session
+    if "user_id" in session:
+        return redirect("/findparks")
+
+
     email = request.form.get('email')
     password = request.form.get('password')
 
     user = crud.get_user_by_email(email)
 
 
-    if request.method == 'POST':
+    if user is not None:
         # if the password in db matched submitted password
         if user.password == password:
             # then save in the session the users id
@@ -66,11 +71,6 @@ def login():
             flash("Wrong password, please try again")
             return redirect('/login')
     else:
-        # if there is a user already in the session, redirect to findparks route
-        if "user_id" in session:
-            return redirect("/findparks")
-        
-        # if there isn't a user in session, show login 
         return render_template("login.html")
 
 
